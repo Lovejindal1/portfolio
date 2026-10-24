@@ -1,0 +1,183 @@
+﻿\documentclass[letterpaper,10pt]{article}
+
+% ---------------- PACKAGES ----------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{4pt}
+
+% ---------------- MARGINS ----------------
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.8in}
+\addtolength{\textheight}{1.9in}
+
+\hfuzz=12pt % ignore harmless 0.15in overhang from list indent
+\raggedright
+\setlength{\tabcolsep}{0in}
+\urlstyle{same}
+
+% ---------------- SECTION SPACING ----------------
+\titleformat{\section}{
+  \vspace{-14pt}\scshape\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% ---------------- CUSTOM COMMANDS ----------------
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-6pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-10pt}
+}
+
+% Project heading: line 1 = name + date, line 2 = tech stack + links
+\newcommand{\resumeProjectHeading}[4]{
+    \vspace{-5pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \small\textbf{#1} & \small #3 \\
+      \textit{\small #2} & \small #4 \\
+    \end{tabular*}\vspace{-3pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=2pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2pt}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt, topsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+% ---------------- DOCUMENT ----------------
+\begin{document}
+
+% ---------- HEADER ----------
+\begin{center}
+    {\Huge \scshape Love Kumar} \\ \vspace{2pt}
+    \small +91-7082406330 $|$ 
+    \href{mailto:lkjindal123@gmail.com}{lkjindal123@gmail.com} $|$ 
+    \href{https://www.linkedin.com/in/love-kumar-jindal/}{LinkedIn} $|$ 
+    \href{https://github.com/Lovejindal1}{GitHub} $|$ 
+    \href{https://leetcode.com/u/JINDALSAHAAB}{LeetCode}
+\end{center}
+
+% ---------- SUMMARY ----------
+\section{Professional Summary}
+\small{
+Computer Science undergraduate at IIIT Una with expertise in \textbf{backend development}, \textbf{microservices architecture}, and \textbf{real-time systems} using \textbf{Node.js}, \textbf{Express.js}, and \textbf{Socket.io}. Experienced in building \textbf{event-driven applications} with \textbf{RabbitMQ}, \textbf{BullMQ}, and \textbf{Redis}, and deploying \textbf{containerized services} with \textbf{Docker} and \textbf{AWS EC2}, backed by strong fundamentals in \textbf{Data Structures}, \textbf{Operating Systems}, \textbf{DBMS}, and \textbf{Computer Networks}.}
+
+% ---------- SKILLS ----------
+\section{Technical Skills}
+\small{
+\textbf{Programming Languages:} C++, JavaScript, Python, SQL
+
+\textbf{Frontend:} React.js, Vite, Axios, EJS, HTML, CSS
+
+\textbf{Backend:} Node.js, Express.js, REST APIs, Socket.io, WebSockets, JWT, Passport.js, Nodemailer, Multer
+
+\textbf{Databases \& ORMs:} MongoDB, MySQL, Redis, Sequelize, Mongoose
+
+\textbf{Distributed Systems:} Microservices, RabbitMQ, BullMQ, API Gateway, bcrypt, Joi
+
+\textbf{Cloud \& DevOps:} Docker, AWS (EC2, RDS), Render, Vercel, Git, GitHub, Postman
+
+\textbf{Core CS:} DSA, OOP, OS, DBMS, Computer Networks, Compiler Design, AI
+}
+
+% ---------- EDUCATION ----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Indian Institute of Information Technology, Una}{2024 -- 2028}
+{B.Tech in Computer Science and Engineering}{\textbf{CGPA: 8.32 (Current)}}
+\resumeSubheading
+{CBSE Board}{2023}
+{Class XII}{\textbf{92.6\%}}
+\resumeSubheading
+{CBSE Board}{2021}
+{Class X}{\textbf{89\%}}
+\resumeSubHeadingListEnd
+
+% ---------- PROJECTS ----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{CodeForge -- Real-Time Competitive Programming Platform}
+{React, Node.js, Express.js, Socket.io, BullMQ, Redis, MongoDB, Docker}
+{Aug 2026}
+{\href{https://code-forge-iota-ten.vercel.app/}{Live Demo} $|$ \href{https://github.com/Lovejindal1/CodeForge}{GitHub}}
+\resumeItemListStart
+\resumeItem{Developed a competitive programming platform with \textbf{28+ REST APIs} and \textbf{7 WebSocket events} for problem-solving, real-time 1v1 battles, and timed programming contests.}
+\resumeItem{Built an asynchronous code execution pipeline using \textbf{BullMQ} and \textbf{Redis} to compile and run C++ code in sandboxed \textbf{Docker} containers with network isolation and memory/CPU limits.}
+\resumeItem{Implemented real-time matchmaking and live battle telemetry using \textbf{Socket.io} with \textbf{rating-based opponent matching ($\pm ELO)} and automatic ELO rating updates.}
+\resumeItem{Designed scheduled contests with \textbf{ICPC-style penalty leaderboards} cached in \textbf{Redis} and automated rating recalculation via a background scheduler.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{Airline Booking System (Microservices)}
+{Node.js, Express.js, MySQL, Sequelize, JWT, RabbitMQ, AWS, Cron}
+{Jul 2026}
+{\href{https://github.com/Lovejindal1/Airline-Booking-System}{GitHub}}
+\resumeItemListStart
+\resumeItem{Architected a \textbf{4-service microservices ecosystem} for airline booking, separating authentication, flight management, booking, and notification responsibilities for independent scalability.}
+\resumeItem{Built and secured \textbf{20+ REST APIs} behind a centralized \textbf{API Gateway}, enabling service discovery, request routing, and unified client access.}
+\resumeItem{Implemented \textbf{RabbitMQ-based event-driven communication} to coordinate booking transactions, seat inventory updates, and asynchronous notification workflows across services.}
+\resumeItem{Deployed services on \textbf{AWS EC2} with independent deployments and horizontal scaling of backend components.}
+\resumeItem{Automated booking confirmations and flight reminders using \textbf{Cron Jobs} and \textbf{Nodemailer}, improving operational efficiency and customer communication.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{RoamHaven -- Full-Stack Vacation Rental \& Spatial Discovery Platform}
+{Node.js, Express.js, MongoDB, EJS, Mapbox, Cloudinary, Passport.js, Joi}
+{Apr 2026}
+{\href{https://github.com/Lovejindal1/Project-Airbnb}{GitHub}}
+\resumeItemListStart
+\resumeItem{Architected a full-stack rental marketplace with \textbf{15 RESTful API routes} across Listings, Reviews, and Users modules using \textbf{MVC architecture}.}
+\resumeItem{Implemented \textbf{Passport.js} authentication with \textbf{MongoStore} sessions and \textbf{role-based authorization} middleware for secure ownership verification.}
+\resumeItem{Integrated \textbf{Mapbox Geocoding API} for interactive spatial exploration and \textbf{Cloudinary} + \textbf{Multer} for optimized image pipelines.}
+\resumeItem{Enforced data integrity with \textbf{Joi validation schemas} and leveraged \textbf{Mongoose middleware hooks} for automated cascading review deletion.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ---------- LEADERSHIP ----------
+\section{Leadership Experience}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Force Coding Club, IIIT Una}{}
+{Core Member \& Technical and Research Head}{}
+\vspace{1.5pt}
+\resumeItemListStart
+\resumeItem{Organized \textbf{5+ coding events} and technical competitions attended by \textbf{250+ students}.}
+\resumeItem{Organized the national-level hackathon \textbf{Hack-The-Throne} with \textbf{300+ registrations} from \textbf{20+ colleges}.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+% ---------- ACHIEVEMENTS ----------
+\section{Achievements}
+\begin{itemize}[leftmargin=0.15in, itemsep=1pt, topsep=2pt]
+\item Secured \textbf{1st Place} in \textbf{PixelForge}, a college-level \textbf{UI/UX} competition at IIIT Una.
+\item Solved \textbf{450+ Data Structures and Algorithms} problems on \href{https://leetcode.com/u/JINDALSAHAAB}{\textbf{LeetCode}} (\textbf{300+ Medium}).
+\item Ranked in the \textbf{Top 2\%} of \textbf{1.4 million+ aspirants} in \textbf{JEE Mains 2024}.
+\end{itemize}
+
+\end{document}

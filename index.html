@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Kumar | Backend & Distributed Systems Engineer | Portfolio</title>
+  <meta name="description" content="Portfolio of Love Kumar — Computer Science undergraduate at IIIT Una specializing in Backend Engineering, Microservices Architecture, RabbitMQ, BullMQ, Docker Sandboxing, and Real-Time Systems.">
+  <meta name="keywords" content="Love Kumar, Love Jindal, Backend Developer, Microservices, IIIT Una, Node.js, Express, Docker, RabbitMQ, BullMQ, Redis, Distributed Systems">
+  <meta name="author" content="Love Kumar">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Love Kumar | Backend & Distributed Systems Engineer">
+  <meta property="og:description" content="Computer Science undergraduate at IIIT Una with expertise in backend development, microservices, and real-time systems.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%2300f2fe'/><path d='M7 8l4 4-4 4M13 16h4' stroke='%2308090d' stroke-width='2.5' stroke-linecap='round'/></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="cyan">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Custom Cyber Cursor -->
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-ring"></div>
+
+  <!-- Interactive Canvas Constellation -->
+  <canvas id="canvas-bg"></canvas>
+  <div class="ambient-glow"></div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ========================================================================
+       STICKY NAVBAR
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" id="nav-brand-logo">
+        <div class="brand-icon" title="Love Kumar (Backend Engineer)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#08090d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5"></polyline>
+            <line x1="12" y1="19" x2="20" y2="19"></line>
+          </svg>
+        </div>
+        <span>Love Kumar</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#competitive" class="nav-link">Competitive</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Audio Sound Effects Toggle -->
+        <button class="icon-btn" id="sound-toggle-btn" title="Toggle Sound FX" aria-label="Toggle Sound Effects">🔊</button>
+
+        <!-- Dynamic Theme Picker -->
+        <div class="theme-picker-wrapper">
+          <button class="icon-btn" id="theme-toggle-btn" title="Change Theme Palette" aria-label="Theme Color Picker">🎨</button>
+          <div class="theme-menu" id="theme-menu">
+            <button class="theme-option" data-theme-name="cyan">
+              <span class="theme-dot cyan"></span> Cyan Pulse
+            </button>
+            <button class="theme-option" data-theme-name="purple">
+              <span class="theme-dot purple"></span> Cyber Violet
+            </button>
+            <button class="theme-option" data-theme-name="emerald">
+              <span class="theme-dot emerald"></span> Matrix Green
+            </button>
+            <button class="theme-option" data-theme-name="amber">
+              <span class="theme-dot amber"></span> Forge Amber
+            </button>
+          </div>
+        </div>
+
+        <!-- Resume Modal Trigger -->
+        <button class="btn btn-outline btn-sm open-resume-btn" id="nav-resume-btn">
+          <span>📄 Resume</span>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Navigation Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon" title="Love Kumar (Backend Engineer)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#08090d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5"></polyline>
+            <line x1="12" y1="19" x2="20" y2="19"></line>
+          </svg>
+        </div>
+        <span>Love Kumar</span>
+      </div>
+      <button class="modal-close-btn" id="mobile-drawer-close">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#about" class="mobile-nav-link">About</a></li>
+      <li><a href="#architecture" class="mobile-nav-link">Architecture Simulator</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+      <li><a href="#competitive" class="mobile-nav-link">LeetCode & Academics</a></li>
+      <li><a href="#achievements" class="mobile-nav-link">Leadership & Honors</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact Me</a></li>
+    </ul>
+    <div style="margin-top: 40px; display: flex; flex-direction: column; gap: 12px;">
+      <button class="btn btn-primary open-resume-btn">View Resume</button>
+      <a href="mailto:lkjindal123@gmail.com" class="btn btn-outline">Send Email</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ======================================================================
+         HERO SECTION
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column: Intro -->
+          <div class="hero-content" id="about">
+            <div class="hero-profile-row">
+              <div class="hero-avatar-wrapper">
+                <img src="assets/images/love_avatar.jpg" alt="Love Kumar Profile Portrait" class="hero-avatar-img">
+                <span class="hero-avatar-badge" title="Active & Ready for Opportunities"></span>
+              </div>
+              <div class="badge-status">
+                <span class="status-ping"></span>
+                <span>Available for Backend & Distributed Roles</span>
+              </div>
+            </div>
+
+            <h1 class="hero-title">
+              Engineering <span class="gradient-text">Scalable</span> Real-Time Systems.
+            </h1>
+
+            <div class="hero-subtitle-container">
+              <span>&gt;</span>
+              <span class="gradient-text" id="typewriter-text">Backend & Microservices Architect</span>
+              <span class="typing-cursor"></span>
+            </div>
+
+            <p class="hero-description">
+              Hey, I'm <strong>Love Kumar</strong> — Computer Science undergraduate at <strong>IIIT Una</strong>. 
+              I design resilient <strong>microservices ecosystems</strong>, <strong>asynchronous event pipelines</strong> 
+              with <strong>RabbitMQ & BullMQ</strong>, isolated <strong>Docker sandboxes</strong>, and low-latency 
+              <strong>WebSocket telemetry</strong>.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary" id="hero-btn-projects">
+                <span>⚡ Explore Projects</span>
+              </a>
+              <a href="#architecture" class="btn btn-outline" id="hero-btn-arch">
+                <span>🔄 Simulate Architecture</span>
+              </a>
+              <a href="assets/Love_Kumar_Resume.pdf?v=1792883686" download="Love_Kumar_Resume.pdf" class="btn btn-outline" id="hero-btn-download-resume">
+                <span>📥 Download Resume (PDF)</span>
+              </a>
+              <button class="btn btn-outline copy-email-btn" id="hero-btn-copy-email" title="Copy Email">
+                <span>📋 Copy Email</span>
+              </button>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="hero-stats-row">
+              <div class="stat-card">
+                <div class="stat-number gradient-text">450+</div>
+                <div class="stat-label">LeetCode Solved</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number gradient-text">8.32</div>
+                <div class="stat-label">CGPA @ IIIT Una</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number gradient-text">Top 2%</div>
+                <div class="stat-label">JEE Mains (1.4M+)</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number gradient-text">1st Place</div>
+                <div class="stat-label">PixelForge UI/UX</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive CLI Terminal -->
+          <div class="hero-terminal" id="terminal-container">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <div class="terminal-title">love-terminal ~ bash (v2.4)</div>
+              <div class="terminal-badge">LIVE CLI</div>
+            </div>
+
+            <div class="terminal-body" id="terminal-body">
+              <div class="terminal-welcome">
+                Welcome to Love Kumar's terminal environment.<br>
+                Type <span>'help'</span> to view available system commands or click quick actions below.
+              </div>
+              <div class="terminal-output">
+                <div class="terminal-command-line">
+                  <span class="terminal-prompt-symbol">guest@love-portfolio:~$</span> system-info
+                </div>
+                <div class="terminal-result">
+                  • System: Linux IIIT-Una kernel 6.8.0-x86_64<br>
+                  • Stack: Node.js, Express, RabbitMQ, BullMQ, Redis, Docker, C++<br>
+                  • Status: Operational & Ready for deployment
+                </div>
+              </div>
+            </div>
+
+            <div class="terminal-quick-chips">
+              <span style="font-size:0.75rem; color:var(--text-dim); margin-right:4px;">Quick:</span>
+              <button class="quick-chip" data-cmd="skills">skills</button>
+              <button class="quick-chip" data-cmd="projects">projects</button>
+              <button class="quick-chip" data-cmd="stats">stats</button>
+              <button class="quick-chip" data-cmd="arch">arch</button>
+              <button class="quick-chip" data-cmd="contact">contact</button>
+              <button class="quick-chip" data-cmd="sudo hire">sudo hire</button>
+            </div>
+
+            <div style="padding: 10px 16px; background:#0b0e14; border-top:1px solid var(--border-subtle);">
+              <div class="terminal-input-row">
+                <span class="terminal-prompt-symbol mono" style="color:var(--accent-primary);">guest@love-portfolio:~$</span>
+                <input type="text" class="terminal-input" id="terminal-input" placeholder="type a command (e.g. 'help', 'projects', 'sudo hire')..." autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         INTERACTIVE SYSTEM ARCHITECTURE SIMULATOR (SIGNATURE SHOWCASE)
+         ====================================================================== -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span>⚡ Interactive Architecture</span>
+          </div>
+          <h2 class="section-title">Distributed Systems & Real-Time Engines</h2>
+          <p class="section-desc">
+            Explore how I architect resilient microservices, asynchronous message queues, 
+            and isolated Docker execution sandboxes. Click nodes or dispatch live simulation packets!
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-header">
+            <div class="arch-tabs">
+              <button class="arch-tab-btn active" data-arch-mode="codeforge" id="tab-codeforge">
+                CodeForge Sandbox Engine
+              </button>
+              <button class="arch-tab-btn" data-arch-mode="airline" id="tab-airline">
+                Airline Booking Microservices
+              </button>
+            </div>
+
+            <div class="arch-controls">
+              <button class="btn btn-primary btn-sm" id="trigger-packet-btn">
+                <span>⚡ Send Live Request Packet</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Wire & Node Canvas -->
+          <div class="arch-canvas-container">
+            <div class="flow-diagram" id="flow-diagram-wrapper">
+              <!-- Rendered via app.js -->
+            </div>
+          </div>
+
+          <!-- Real-Time Telemetry Log Monitor -->
+          <div class="arch-telemetry-log">
+            <div class="log-status">
+              <span class="log-indicator"></span>
+              <span class="mono" id="arch-log-text">Ready for traffic simulation packet dispatch...</span>
+            </div>
+            <div class="mono" style="font-size:0.75rem; color:var(--text-dim);">
+              Latency: ~18ms | 99.98% Uptime
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         FEATURED PROJECTS SHOWCASE
+         ====================================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span>💻 Selected Works</span>
+          </div>
+          <h2 class="section-title">Production-Grade Engineering</h2>
+          <p class="section-desc">
+            Deep-dive into full-scale distributed backends, sandboxed execution pipelines, 
+            and scalable web platforms engineered with zero compromise.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: CodeForge -->
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="assets/images/codeforge.jpg" alt="CodeForge Platform Interface" class="project-img" loading="lazy">
+              <div class="preview-overlay"></div>
+            </div>
+            <div class="project-info">
+              <div class="project-category">
+                <span>⚡ Real-Time Competitive Programming Platform</span>
+              </div>
+              <h3 class="project-name">CodeForge</h3>
+              
+              <div class="project-tech-stack">
+                <span class="tech-pill accent">React</span>
+                <span class="tech-pill accent">Node.js</span>
+                <span class="tech-pill accent">Express.js</span>
+                <span class="tech-pill accent">Socket.io</span>
+                <span class="tech-pill accent">BullMQ</span>
+                <span class="tech-pill accent">Redis</span>
+                <span class="tech-pill accent">Docker</span>
+                <span class="tech-pill">MongoDB</span>
+              </div>
+
+              <ul class="project-highlights">
+                <li>
+                  Engineered platform with <strong>28+ REST APIs</strong> and <strong>7 WebSocket events</strong> supporting timed contests and real-time 1v1 battles.
+                </li>
+                <li>
+                  Built an asynchronous execution engine using <strong>BullMQ</strong> & <strong>Redis</strong> compiling C++ in secure, sandboxed <strong>Docker containers</strong> with cgroup CPU/memory caps.
+                </li>
+                <li>
+                  Implemented real-time matchmaking telemetry using <strong>Socket.io</strong> with <strong>rating-based opponent pairing (±200 ELO)</strong>.
+                </li>
+                <li>
+                  Designed scheduled contests with <strong>ICPC-style penalty leaderboards</strong> cached in Redis with automated rating recalculation.
+                </li>
+              </ul>
+
+              <div class="project-links">
+                <a href="https://code-forge-iota-ten.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>🚀 Live Demo</span>
+                </a>
+                <a href="https://github.com/Lovejindal1/CodeForge" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                  <span>💻 GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Airline Booking Microservices -->
+          <article class="project-card reverse">
+            <div class="project-preview">
+              <img src="assets/images/architecture.png" alt="Airline Booking Microservices System Architecture Diagram" class="project-img" loading="lazy" style="object-fit: contain; background: #0c1017; padding: 10px;">
+              <div class="preview-overlay"></div>
+            </div>
+            <div class="project-info">
+              <div class="project-category">
+                <span>🛡️ Distributed Event-Driven Architecture</span>
+              </div>
+              <h3 class="project-name">Airline Booking Microservices</h3>
+              
+              <div class="project-tech-stack">
+                <span class="tech-pill accent">Microservices</span>
+                <span class="tech-pill accent">RabbitMQ</span>
+                <span class="tech-pill accent">Node.js</span>
+                <span class="tech-pill accent">Express.js</span>
+                <span class="tech-pill accent">API Gateway</span>
+                <span class="tech-pill accent">AWS EC2</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">Sequelize</span>
+                <span class="tech-pill">JWT</span>
+                <span class="tech-pill">Cron</span>
+              </div>
+
+              <ul class="project-highlights">
+                <li>
+                  Architected a <strong>4-service decoupled ecosystem</strong> separating Auth, Flights, Bookings, and Notifications for independent scalability.
+                </li>
+                <li>
+                  Constructed centralized <strong>API Gateway</strong> securing <strong>20+ REST APIs</strong> with service discovery, rate-limiting, and unified request routing.
+                </li>
+                <li>
+                  Implemented <strong>RabbitMQ event broker</strong> coordinating booking transactions, seat lock inventory, and asynchronous notification workflows.
+                </li>
+                <li>
+                  Automated booking confirmations and flight reminders using <strong>Cron Jobs</strong> and <strong>Nodemailer</strong>; deployed independently on <strong>AWS EC2</strong>.
+                </li>
+              </ul>
+
+              <div class="project-links">
+                <a href="https://github.com/Lovejindal1/Airline-Booking-System" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>💻 View Repository</span>
+                </a>
+                <button class="btn btn-outline btn-sm" onclick="document.getElementById('tab-airline').click(); document.getElementById('architecture').scrollIntoView({behavior:'smooth'});">
+                  <span>🔄 Inspect Simulation</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Airbnb Clone -->
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="assets/images/airbnb.jpg" alt="RoamHaven Rental Marketplace Interface" class="project-img" loading="lazy">
+              <div class="preview-overlay"></div>
+            </div>
+            <div class="project-info">
+              <div class="project-category">
+                <span>🌐 Full-Stack Geospatial Marketplace</span>
+              </div>
+              <h3 class="project-name">RoamHaven — Full-Stack Rental & Geo-Discovery Platform</h3>
+              
+              <div class="project-tech-stack">
+                <span class="tech-pill accent">Node.js</span>
+                <span class="tech-pill accent">Express.js</span>
+                <span class="tech-pill accent">MongoDB</span>
+                <span class="tech-pill accent">Mapbox API</span>
+                <span class="tech-pill accent">Cloudinary</span>
+                <span class="tech-pill">Passport.js</span>
+                <span class="tech-pill">EJS</span>
+                <span class="tech-pill">Joi</span>
+                <span class="tech-pill">Multer</span>
+              </div>
+
+              <ul class="project-highlights">
+                <li>
+                  Architected full-stack rental marketplace with <strong>15 RESTful API routes</strong> across Listings, Reviews, and Users modules using <strong>MVC architecture</strong>.
+                </li>
+                <li>
+                  Integrated <strong>Mapbox Geocoding & GL JS</strong> for interactive spatial location pinning, category exploration (Trending, Iconic Cities, Mountains), and real-time tax calculators.
+                </li>
+                <li>
+                  Configured <strong>Passport.js</strong> session authentication with <strong>MongoStore</strong> and custom <strong>role-based authorization (RBAC)</strong> middleware.
+                </li>
+                <li>
+                  Engineered <strong>Cloudinary + Multer</strong> asset pipeline for image delivery; enforced schema integrity with <strong>Joi</strong> and <strong>Mongoose cascading deletion hooks</strong>.
+                </li>
+              </ul>
+
+              <div class="project-links">
+                <a href="https://github.com/Lovejindal1/Project-Airbnb" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>💻 View Repository (GitHub)</span>
+                </a>
+                <span class="badge-status" style="font-size:0.75rem;">Full-Stack MVC Architecture</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SKILLS MATRIX & TECH ECOSYSTEM
+         ====================================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span>🛠️ Tech Matrix</span>
+          </div>
+          <h2 class="section-title">Engineered Capabilities</h2>
+          <p class="section-desc">
+            A comprehensive breakdown of languages, backend frameworks, distributed brokers, 
+            and core computer science competencies.
+          </p>
+        </div>
+
+        <div class="skills-filter-row">
+          <button class="filter-btn active" data-filter="all">All Technologies</button>
+          <button class="filter-btn" data-filter="languages">Languages</button>
+          <button class="filter-btn" data-filter="backend">Backend & Realtime</button>
+          <button class="filter-btn" data-filter="distributed">Distributed & Cloud</button>
+          <button class="filter-btn" data-filter="databases">Databases</button>
+          <button class="filter-btn" data-filter="core">Core CS</button>
+        </div>
+
+        <div class="skills-grid">
+          <!-- C++ -->
+          <div class="skill-card" data-category="languages">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">⚡</div>
+                <div>
+                  <div class="skill-title">C++ (STL)</div>
+                  <div class="skill-category-tag">Low-Level & DSA</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            <div class="skill-desc">High-performance algorithms, memory control, pointers, competitive programming standard.</div>
+          </div>
+
+          <!-- JavaScript / Node.js -->
+          <div class="skill-card" data-category="backend">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">🟢</div>
+                <div>
+                  <div class="skill-title">Node.js & Express</div>
+                  <div class="skill-category-tag">Backend Architecture</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+            <div class="skill-desc">Event-loop mastery, asynchronous I/O, REST APIs, middleware orchestration, JWT auth.</div>
+          </div>
+
+          <!-- RabbitMQ -->
+          <div class="skill-card" data-category="distributed">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">🐇</div>
+                <div>
+                  <div class="skill-title">RabbitMQ</div>
+                  <div class="skill-category-tag">Message Broker</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+            <div class="skill-desc">AMQP protocol, direct/fanout/topic exchanges, consumer queues, event-driven microservices.</div>
+          </div>
+
+          <!-- BullMQ & Redis -->
+          <div class="skill-card" data-category="distributed">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">🐂</div>
+                <div>
+                  <div class="skill-title">BullMQ & Redis</div>
+                  <div class="skill-category-tag">Job Queues & Cache</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            <div class="skill-desc">In-memory caching, priority job scheduling, worker execution pools, leaderboard scoring.</div>
+          </div>
+
+          <!-- Docker -->
+          <div class="skill-card" data-category="distributed">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">🐳</div>
+                <div>
+                  <div class="skill-title">Docker Sandboxing</div>
+                  <div class="skill-category-tag">Containerization</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 86%;"></div></div>
+            <div class="skill-desc">Sandboxed environments, cgroup resource limiting, isolated execution runners, Dockerfiles.</div>
+          </div>
+
+          <!-- Socket.io & WebSockets -->
+          <div class="skill-card" data-category="backend">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">📡</div>
+                <div>
+                  <div class="skill-title">Socket.io & WebSockets</div>
+                  <div class="skill-category-tag">Bidirectional Realtime</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            <div class="skill-desc">Full-duplex WebSocket channels, room-based broadcasting, matchmaking & live telemetry.</div>
+          </div>
+
+          <!-- AWS (EC2, RDS) -->
+          <div class="skill-card" data-category="distributed">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">☁️</div>
+                <div>
+                  <div class="skill-title">AWS (EC2, RDS)</div>
+                  <div class="skill-category-tag">Cloud Infrastructure</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 82%;"></div></div>
+            <div class="skill-desc">Cloud provisioning, security groups, EC2 microservices hosting, managed relational DBs.</div>
+          </div>
+
+          <!-- MySQL & MongoDB -->
+          <div class="skill-card" data-category="databases">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">🗄️</div>
+                <div>
+                  <div class="skill-title">SQL & NoSQL (MySQL / Mongo)</div>
+                  <div class="skill-category-tag">Persistence Layer</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+            <div class="skill-desc">Relational schemas, ACID transactions, Sequelize ORM, Mongoose schemas, indexing strategies.</div>
+          </div>
+
+          <!-- Core CS & DSA -->
+          <div class="skill-card" data-category="core">
+            <div class="skill-card-top">
+              <div class="skill-icon-name">
+                <div class="skill-svg-icon">🧠</div>
+                <div>
+                  <div class="skill-title">DSA & System Design</div>
+                  <div class="skill-category-tag">Theoretical Rigor</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width: 94%;"></div></div>
+            <div class="skill-desc">Advanced trees, graphs, DP, Operating Systems, DBMS internals, Computer Networks, AI.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         COMPETITIVE PROGRAMMING & ACADEMICS ARENA
+         ====================================================================== -->
+    <section class="section" id="competitive">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span>🏆 Problem Solving Arena</span>
+          </div>
+          <h2 class="section-title">Algorithms & Academics</h2>
+          <p class="section-desc">
+            Strong analytical foundations tested through 450+ complex algorithmic challenges 
+            and academic excellence at IIIT Una.
+          </p>
+        </div>
+
+        <div class="competitive-bento">
+          <!-- LeetCode Card -->
+          <div class="bento-card">
+            <div>
+              <div class="leetcode-header">
+                <div class="leetcode-brand">
+                  <div class="leetcode-logo">LC</div>
+                  <div>
+                    <h3 style="font-size: 1.3rem;">LeetCode Mastery</h3>
+                    <div class="mono" style="font-size:0.8rem; color:var(--text-muted);">Handle: @JINDALSAHAAB</div>
+                  </div>
+                </div>
+                <a href="https://leetcode.com/u/JINDALSAHAAB" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                  <span>Visit Profile ↗</span>
+                </a>
+              </div>
+
+              <div class="lc-stats-grid">
+                <div class="lc-stat-box">
+                  <div class="lc-stat-count">450+</div>
+                  <div class="lc-stat-type" style="color:var(--accent-primary);">Total Solved</div>
+                </div>
+                <div class="lc-stat-box">
+                  <div class="lc-stat-count">300+</div>
+                  <div class="lc-stat-type medium">Medium Solved</div>
+                </div>
+                <div class="lc-stat-box">
+                  <div class="lc-stat-count">C++</div>
+                  <div class="lc-stat-type hard">Primary Weapon</div>
+                </div>
+              </div>
+
+              <div class="lc-topics-chips">
+                <span class="topic-chip">Dynamic Programming</span>
+                <span class="topic-chip">Graph Theory</span>
+                <span class="topic-chip">Trie & Trees</span>
+                <span class="topic-chip">Bit Manipulation</span>
+                <span class="topic-chip">Binary Search</span>
+                <span class="topic-chip">Greedy</span>
+                <span class="topic-chip">Backtracking</span>
+              </div>
+            </div>
+
+            <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">
+              Demonstrated consistency in writing optimal time and space complexity algorithms, 
+              translating directly to high-throughput, low-latency distributed backend engineering.
+            </p>
+          </div>
+
+          <!-- Academic Card -->
+          <div class="bento-card">
+            <div>
+              <h3 style="font-size: 1.3rem; margin-bottom: 20px;">Academic Excellence</h3>
+              
+              <div class="academics-list">
+                <div class="academic-item">
+                  <div class="academic-icon">🎓</div>
+                  <div class="academic-info">
+                    <div class="academic-title">IIIT Una — B.Tech CSE</div>
+                    <div class="academic-sub">Computer Science & Engineering (2024 - 2028)</div>
+                    <div class="academic-badge">Current CGPA: 8.32</div>
+                  </div>
+                </div>
+
+                <div class="academic-item">
+                  <div class="academic-icon">🎯</div>
+                  <div class="academic-info">
+                    <div class="academic-title">JEE Mains 2024</div>
+                    <div class="academic-sub">National Level Engineering Entrance Exam</div>
+                    <div class="academic-badge">Top 2% (out of 1.4 Million+ Aspirants)</div>
+                  </div>
+                </div>
+
+                <div class="academic-item">
+                  <div class="academic-icon">📜</div>
+                  <div class="academic-info">
+                    <div class="academic-title">CBSE Board Examinations</div>
+                    <div class="academic-sub">Class XII (Senior Secondary) & Class X</div>
+                    <div class="academic-badge">Class XII: 92.6% | Class X: 89%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px;">
+              <span class="badge-status" style="font-size: 0.76rem;">
+                Core Disciplines: DSA • OS • DBMS • Computer Networks • AI
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LEADERSHIP & ACHIEVEMENTS SECTION
+         ====================================================================== -->
+    <section class="section" id="achievements">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span>🎖️ Leadership & Honors</span>
+          </div>
+          <h2 class="section-title">Community & Recognition</h2>
+          <p class="section-desc">
+            Empowering fellow developers, orchestrating national-scale hackathons, 
+            and earning podium recognitions in UI/UX & algorithmic design.
+          </p>
+        </div>
+
+        <div class="achievements-grid">
+          <!-- Hack-The-Throne & Force Coding Club -->
+          <div class="achievement-card">
+            <div class="achievement-medal">👑</div>
+            <h3 class="achievement-title">Tech & Research Head — Force Coding Club</h3>
+            <p class="achievement-desc">
+              Organized <strong>Hack-The-Throne</strong>, a flagship national-level hackathon with 
+              <strong>300+ registrations</strong> from <strong>20+ engineering colleges</strong> across India.
+            </p>
+            <div class="mono" style="font-size:0.78rem; color:var(--accent-primary);">IIIT Una Coding Society</div>
+          </div>
+
+          <!-- 5+ Coding Events -->
+          <div class="achievement-card">
+            <div class="achievement-medal">💻</div>
+            <h3 class="achievement-title">Conducted 5+ Campus Contests</h3>
+            <p class="achievement-desc">
+              Curated competitive problem sets and organized algorithmic competitions attended 
+              by <strong>250+ student developers</strong>, fostering problem-solving culture.
+            </p>
+            <div class="mono" style="font-size:0.78rem; color:var(--accent-primary);">Problem Setter & Mentor</div>
+          </div>
+
+          <!-- 1st Place PixelForge -->
+          <div class="achievement-card">
+            <div class="achievement-medal">🥇</div>
+            <h3 class="achievement-title">1st Place — PixelForge UI/UX</h3>
+            <p class="achievement-desc">
+              Secured first prize in the college-level UI/UX competition at IIIT Una, 
+              demonstrating rare versatility across both deep systems engineering and elegant visual design.
+            </p>
+            <div class="mono" style="font-size:0.78rem; color:var(--accent-primary);">Gold Trophy Winner</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         CONTACT & HIRE ME SECTION
+         ====================================================================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <span>📬 Get In Touch</span>
+          </div>
+          <h2 class="section-title">Let's Build Something Extraordinary</h2>
+          <p class="section-desc">
+            Whether you have an internship opening, backend engineering role, or a complex distributed system 
+            challenge — my inbox is always open.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Direct Channels -->
+          <div class="contact-info-panel">
+            <div class="contact-card-box">
+              <h3 style="font-size: 1.3rem;">Contact Channels</h3>
+              
+              <!-- Email -->
+              <div class="contact-method">
+                <div class="method-left">
+                  <div class="method-icon">✉️</div>
+                  <div class="method-details">
+                    <span class="method-label">Direct Email</span>
+                    <a href="mailto:lkjindal123@gmail.com" class="method-value">lkjindal123@gmail.com</a>
+                  </div>
+                </div>
+                <button class="btn btn-outline btn-sm copy-email-btn" title="Copy Email">
+                  <span>Copy</span>
+                </button>
+              </div>
+
+              <!-- Phone -->
+              <div class="contact-method">
+                <div class="method-left">
+                  <div class="method-icon">📱</div>
+                  <div class="method-details">
+                    <span class="method-label">Direct Phone</span>
+                    <a href="tel:+917082406330" class="method-value">+91 7082406330</a>
+                  </div>
+                </div>
+                <button class="btn btn-outline btn-sm copy-phone-btn" title="Copy Phone">
+                  <span>Copy</span>
+                </button>
+              </div>
+
+              <!-- Location -->
+              <div class="contact-method">
+                <div class="method-left">
+                  <div class="method-icon">📍</div>
+                  <div class="method-details">
+                    <span class="method-label">Location</span>
+                    <span class="method-value">IIIT Una, Himachal Pradesh, India 🇮🇳</span>
+                  </div>
+                </div>
+                <span class="badge-status" style="font-size:0.75rem;">Open to Remote</span>
+              </div>
+
+              <!-- Social Links Row -->
+              <div class="social-links-row">
+                <a href="https://github.com/Lovejindal1" target="_blank" rel="noopener noreferrer" class="social-pill">
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/love-kumar-jindal/" target="_blank" rel="noopener noreferrer" class="social-pill">
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://leetcode.com/u/JINDALSAHAAB" target="_blank" rel="noopener noreferrer" class="social-pill">
+                  <span>LeetCode</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Dispatch Form -->
+          <div class="contact-form-panel">
+            <h3 style="font-size: 1.3rem; margin-bottom: 20px;">Send a Direct Message</h3>
+            <form id="portfolio-contact-form">
+              <div class="form-group">
+                <label for="form-name" class="form-label">YOUR NAME</label>
+                <input type="text" id="form-name" class="form-control" placeholder="e.g. John Doe / Recruiter" required>
+              </div>
+              <div class="form-group">
+                <label for="form-email" class="form-label">YOUR WORK EMAIL</label>
+                <input type="email" id="form-email" class="form-control" placeholder="name@company.com" required>
+              </div>
+              <div class="form-group">
+                <label for="form-message" class="form-label">MESSAGE</label>
+                <textarea id="form-message" class="form-control" placeholder="Hi Love, we were impressed by your microservices work..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <span>🚀 Dispatch Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-text">
+        Crafted with precision by <strong>Love Kumar</strong> | Built with Vanilla HTML5, CSS3 & JavaScript (0 Bloat)
+      </div>
+      <a href="#hero" class="back-to-top">
+        <span>Back to top</span> ↑
+      </a>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       RESUME MODAL VIEWER
+       ======================================================================== -->
+  <div class="modal-overlay" id="resume-modal">
+    <div class="modal-window" style="max-width: 980px; width: 95vw;">
+      <div class="modal-header" style="flex-wrap: wrap; gap: 12px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <img src="assets/images/love_avatar.jpg" alt="Love Kumar" style="width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid var(--accent-primary);">
+          <h3 style="font-size:1.15rem;">Love Kumar — Official Resume</h3>
+          <span class="tech-pill accent" style="font-size:0.7rem;">Overleaf LaTeX Verified</span>
+        </div>
+
+        <div class="resume-modal-tabs">
+          <button class="resume-tab-btn active" id="tab-pdf-view">📄 Official PDF</button>
+          <button class="resume-tab-btn" id="tab-latex-view">📜 Overleaf LaTeX (.tex)</button>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+          <a href="assets/Love_Kumar_Resume.pdf?v=1792883686" download="Love_Kumar_Resume.pdf" class="btn btn-primary btn-sm" id="modal-dl-pdf">
+            <span>📥 Download PDF</span>
+          </a>
+          <a href="assets/Love_Kumar_Resume.pdf?v=1792883686" target="_blank" class="btn btn-outline btn-sm" id="modal-open-fullscreen">
+            <span>↗️ Fullscreen</span>
+          </a>
+          <button class="btn btn-outline btn-sm" id="btn-copy-latex" style="display:none;">
+            <span>📋 Copy .tex</span>
+          </button>
+          <button class="modal-close-btn">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 16px;">
+        <!-- Official PDF Document Viewer -->
+        <div id="pdf-view-wrapper">
+          <iframe src="assets/Love_Kumar_Resume.pdf?v=1792883686" class="resume-pdf-frame" title="Love Kumar Official Resume PDF"></iframe>
+        </div>
+
+        <!-- LaTeX Code Viewer -->
+        <div id="latex-view-wrapper" style="display:none;">
+          <div style="margin-bottom: 10px; display:flex; justify-content:space-between; align-items:center;">
+            <span class="mono" style="font-size:0.8rem; color:var(--text-muted);">Source: assets/Love_Kumar_Resume.tex</span>
+            <span class="badge-status" style="font-size:0.72rem;">Exact Overleaf Source</span>
+          </div>
+          <pre class="resume-latex-view"><code id="latex-raw-code">﻿\documentclass[letterpaper,10pt]{article}
+
+% ---------------- PACKAGES ----------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{4pt}
+
+% ---------------- MARGINS ----------------
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-0.8in}
+\addtolength{\textheight}{1.9in}
+
+\hfuzz=12pt % ignore harmless 0.15in overhang from list indent
+\raggedright
+\setlength{\tabcolsep}{0in}
+\urlstyle{same}
+
+% ---------------- SECTION SPACING ----------------
+\titleformat{\section}{
+  \vspace{-14pt}\scshape\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% ---------------- CUSTOM COMMANDS ----------------
+\newcommand{\resumeItem}[1]{
+  \item\small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-6pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} &amp; \small #2 \\
+      \textit{\small#3} &amp; \textit{\small #4} \\
+    \end{tabular*}\vspace{-10pt}
+}
+
+% Project heading: line 1 = name + date, line 2 = tech stack + links
+\newcommand{\resumeProjectHeading}[4]{
+    \vspace{-5pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \small\textbf{#1} &amp; \small #3 \\
+      \textit{\small #2} &amp; \small #4 \\
+    \end{tabular*}\vspace{-3pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=2pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2pt}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt, topsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+% ---------------- DOCUMENT ----------------
+\begin{document}
+
+% ---------- HEADER ----------
+\begin{center}
+    {\Huge \scshape Love Kumar} \\ \vspace{2pt}
+    \small +91-7082406330 $|$ 
+    \href{mailto:lkjindal123@gmail.com}{lkjindal123@gmail.com} $|$ 
+    \href{https://www.linkedin.com/in/love-kumar-jindal/}{LinkedIn} $|$ 
+    \href{https://github.com/Lovejindal1}{GitHub} $|$ 
+    \href{https://leetcode.com/u/JINDALSAHAAB}{LeetCode}
+\end{center}
+
+% ---------- SUMMARY ----------
+\section{Professional Summary}
+\small{
+Computer Science undergraduate at IIIT Una with expertise in \textbf{backend development}, \textbf{microservices architecture}, and \textbf{real-time systems} using \textbf{Node.js}, \textbf{Express.js}, and \textbf{Socket.io}. Experienced in building \textbf{event-driven applications} with \textbf{RabbitMQ}, \textbf{BullMQ}, and \textbf{Redis}, and deploying \textbf{containerized services} with \textbf{Docker} and \textbf{AWS EC2}, backed by strong fundamentals in \textbf{Data Structures}, \textbf{Operating Systems}, \textbf{DBMS}, and \textbf{Computer Networks}.}
+
+% ---------- SKILLS ----------
+\section{Technical Skills}
+\small{
+\textbf{Programming Languages:} C++, JavaScript, Python, SQL
+
+\textbf{Frontend:} React.js, Vite, Axios, EJS, HTML, CSS
+
+\textbf{Backend:} Node.js, Express.js, REST APIs, Socket.io, WebSockets, JWT, Passport.js, Nodemailer, Multer
+
+\textbf{Databases \&amp; ORMs:} MongoDB, MySQL, Redis, Sequelize, Mongoose
+
+\textbf{Distributed Systems:} Microservices, RabbitMQ, BullMQ, API Gateway, bcrypt, Joi
+
+\textbf{Cloud \&amp; DevOps:} Docker, AWS (EC2, RDS), Render, Vercel, Git, GitHub, Postman
+
+\textbf{Core CS:} DSA, OOP, OS, DBMS, Computer Networks, Compiler Design, AI
+}
+
+% ---------- EDUCATION ----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Indian Institute of Information Technology, Una}{2024 -- 2028}
+{B.Tech in Computer Science and Engineering}{\textbf{CGPA: 8.32 (Current)}}
+\resumeSubheading
+{CBSE Board}{2023}
+{Class XII}{\textbf{92.6\%}}
+\resumeSubheading
+{CBSE Board}{2021}
+{Class X}{\textbf{89\%}}
+\resumeSubHeadingListEnd
+
+% ---------- PROJECTS ----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+{CodeForge -- Real-Time Competitive Programming Platform}
+{React, Node.js, Express.js, Socket.io, BullMQ, Redis, MongoDB, Docker}
+{Aug 2026}
+{\href{https://code-forge-iota-ten.vercel.app/}{Live Demo} $|$ \href{https://github.com/Lovejindal1/CodeForge}{GitHub}}
+\resumeItemListStart
+\resumeItem{Developed a competitive programming platform with \textbf{28+ REST APIs} and \textbf{7 WebSocket events} for problem-solving, real-time 1v1 battles, and timed programming contests.}
+\resumeItem{Built an asynchronous code execution pipeline using \textbf{BullMQ} and \textbf{Redis} to compile and run C++ code in sandboxed \textbf{Docker} containers with network isolation and memory/CPU limits.}
+\resumeItem{Implemented real-time matchmaking and live battle telemetry using \textbf{Socket.io} with \textbf{rating-based opponent matching ($\pm ELO)} and automatic ELO rating updates.}
+\resumeItem{Designed scheduled contests with \textbf{ICPC-style penalty leaderboards} cached in \textbf{Redis} and automated rating recalculation via a background scheduler.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{Airline Booking System (Microservices)}
+{Node.js, Express.js, MySQL, Sequelize, JWT, RabbitMQ, AWS, Cron}
+{Jul 2026}
+{\href{https://github.com/Lovejindal1/Airline-Booking-System}{GitHub}}
+\resumeItemListStart
+\resumeItem{Architected a \textbf{4-service microservices ecosystem} for airline booking, separating authentication, flight management, booking, and notification responsibilities for independent scalability.}
+\resumeItem{Built and secured \textbf{20+ REST APIs} behind a centralized \textbf{API Gateway}, enabling service discovery, request routing, and unified client access.}
+\resumeItem{Implemented \textbf{RabbitMQ-based event-driven communication} to coordinate booking transactions, seat inventory updates, and asynchronous notification workflows across services.}
+\resumeItem{Deployed services on \textbf{AWS EC2} with independent deployments and horizontal scaling of backend components.}
+\resumeItem{Automated booking confirmations and flight reminders using \textbf{Cron Jobs} and \textbf{Nodemailer}, improving operational efficiency and customer communication.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{RoamHaven -- Full-Stack Vacation Rental \&amp; Spatial Discovery Platform}
+{Node.js, Express.js, MongoDB, EJS, Mapbox, Cloudinary, Passport.js, Joi}
+{Apr 2026}
+{\href{https://github.com/Lovejindal1/Project-Airbnb}{GitHub}}
+\resumeItemListStart
+\resumeItem{Architected a full-stack rental marketplace with \textbf{15 RESTful API routes} across Listings, Reviews, and Users modules using \textbf{MVC architecture}.}
+\resumeItem{Implemented \textbf{Passport.js} authentication with \textbf{MongoStore} sessions and \textbf{role-based authorization} middleware for secure ownership verification.}
+\resumeItem{Integrated \textbf{Mapbox Geocoding API} for interactive spatial exploration and \textbf{Cloudinary} + \textbf{Multer} for optimized image pipelines.}
+\resumeItem{Enforced data integrity with \textbf{Joi validation schemas} and leveraged \textbf{Mongoose middleware hooks} for automated cascading review deletion.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ---------- LEADERSHIP ----------
+\section{Leadership Experience}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Force Coding Club, IIIT Una}{}
+{Core Member \&amp; Technical and Research Head}{}
+\vspace{1.5pt}
+\resumeItemListStart
+\resumeItem{Organized \textbf{5+ coding events} and technical competitions attended by \textbf{250+ students}.}
+\resumeItem{Organized the national-level hackathon \textbf{Hack-The-Throne} with \textbf{300+ registrations} from \textbf{20+ colleges}.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+% ---------- ACHIEVEMENTS ----------
+\section{Achievements}
+\begin{itemize}[leftmargin=0.15in, itemsep=1pt, topsep=2pt]
+\item Secured \textbf{1st Place} in \textbf{PixelForge}, a college-level \textbf{UI/UX} competition at IIIT Una.
+\item Solved \textbf{450+ Data Structures and Algorithms} problems on \href{https://leetcode.com/u/JINDALSAHAAB}{\textbf{LeetCode}} (\textbf{300+ Medium}).
+\item Ranked in the \textbf{Top 2\%} of \textbf{1.4 million+ aspirants} in \textbf{JEE Mains 2024}.
+\end{itemize}
+
+\end{document}
+</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
